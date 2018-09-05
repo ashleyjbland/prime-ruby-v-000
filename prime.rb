@@ -3,14 +3,13 @@
 #If it is divisible by any of them, then it's not prime
 
 
-def prime?(n)
-  if n <= 1
-    false
-  elsif n == 2
-    true
-  elsif (2..n/2).none?{|i| n % i == 0}
-    true
+
+def prime?(num)
+  if num < 0 or num == 0 or num == 1
+    return false
   else
-    false
+    (2..num-1).to_a.all? do |possible_factor|
+      num % possible_factor != 0
+    end
   end
 end
